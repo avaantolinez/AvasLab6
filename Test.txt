@@ -1,0 +1,41 @@
+# Ava Antolinez
+
+decoded_password = ""
+encoded_password = ""
+
+
+def password_encoder(digits):
+    global encoded_password
+    global decoded_password
+    decoded_password = digits
+    result = ""
+    for i in range(len(digits)):
+        addition = int(digits[i]) + 3
+        if addition > 9:
+            addition -= 10
+        result += str(addition)
+    encoded_password = result
+
+
+def password_deocoder():
+    pass
+
+
+def main():
+    stop = False
+    while not stop:
+        print("Menu\n-------------\n1.\tEncode\n2.\tDecode\n3.\tQuit\n")
+        option = int(input("Please enter an option: "))
+        if option == 1:
+            password_encoder(input("Please enter your password to encode: "))
+            print("Your password has been encoded and stored!\n")
+        elif option == 2:
+            print(password_deocoder())
+        elif option == 3:
+            break
+
+
+#  runs the main method
+if __name__ == "__main__":
+    pass
+    main()
