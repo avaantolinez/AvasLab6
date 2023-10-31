@@ -1,9 +1,3 @@
-# Ava Antolinez
-
-decoded_password = ""
-encoded_password = ""
-
-
 def password_encoder(digits):
     global encoded_password
     global decoded_password
@@ -15,10 +9,24 @@ def password_encoder(digits):
             addition -= 10
         result += str(addition)
     encoded_password = result
+    print(encoded_password)
 
 
-def password_deocoder():
-    pass
+def password_decoder(digits):
+    decoded_list = []
+    # iterates through each digit in the encoded password
+    for digit in digits:
+        num = int(digit)
+        # repeats the subtracting process 3 times and restarts at 9 after it reaches 0
+        for i in range(3):
+            num -= 1
+            if num < 0:
+                num = 9
+        # appends the number to a list of decoded digits
+        decoded_list.append(str(num))
+    decoded_str = ''.join(decoded_list)
+    return decoded_str
+    print(decoded_str)
 
 
 def main():
@@ -30,7 +38,7 @@ def main():
             password_encoder(input("Please enter your password to encode: "))
             print("Your password has been encoded and stored!\n")
         elif option == 2:
-            print(password_deocoder())
+            print(password_decoder(encoded_password))
         elif option == 3:
             break
 
